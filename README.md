@@ -12,19 +12,23 @@ Pick the build for your machine, put it on your `PATH`, and make it executable.
 
 | Platform | Binary |
 | -------- | ------ |
-| macOS (Apple Silicon) | `bin/darwin-arm64/act3` |
-| macOS (Intel) | `bin/darwin-amd64/act3` |
+| Mac (Apple Silicon — M1, M2, M3, M4) | `bin/Mac-Apple_Silicon/act3` |
+| Mac (Intel) | `bin/Mac-Intel_CPU/act3` |
 | Linux (x86-64) | `bin/linux-amd64/act3` |
 | Linux (ARM64) | `bin/linux-arm64/act3` |
 | Windows (x86-64) | `bin/windows-amd64/act3.exe` |
 | Windows (ARM64) | `bin/windows-arm64/act3.exe` |
+
+Not sure which Mac you have? Click the Apple menu → About This Mac. If it lists a
+**chip** (M1, M2, M3, M4), it is Apple Silicon; if it lists a **processor**
+(Intel Core), it is Intel. Every Mac sold since late 2020 is Apple Silicon.
 
 macOS / Linux:
 
 ```bash
 git clone https://github.com/ACT3ai/cli.git
 cd cli
-sudo install -m 755 bin/darwin-arm64/act3 /usr/local/bin/act3   # your platform here
+sudo install -m 755 bin/Mac-Apple_Silicon/act3 /usr/local/bin/act3   # your platform here
 act3 --help
 ```
 
