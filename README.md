@@ -46,6 +46,7 @@ Windows: copy `act3.exe` into a directory on your `PATH`.
 ```bash
 act3 login          # opens your browser, hands the credential back
 act3 status         # which backend, signed in?, reachable?
+act3 doctor         # which ACT3 is this, and can every command run there?
 act3 logout
 ```
 
@@ -78,7 +79,24 @@ The nouns, by what they do:
   `camera-plan`, `job`, `look`, `plan`, `reframe`
 - **Manage** — projects, credits, your team, jobs: `analytics`, `capabilities`,
   `context`, `credits`, `estimate`, `org`, `publish`
-- **Local** — this tool: `help`, `login`, `logout`, `status`
+- **Local** — this tool: `doctor`, `help`, `login`, `logout`, `status`
+
+## 4D sets
+
+```bash
+act3 set list --search courtroom              # find a set's id
+act3 set yaml <setId> --out ./courtroom.yaml  # its 4D model, with its revision
+act3 set yaml-save <setId> ./courtroom.yaml --base-revision <rev> --confirm
+act3 set upload <setId> ./location_scout/ --confirm
+act3 set export --format zip --out ./sets_backup
+```
+
+Also `create`, `show`, `shots`, `usage`, `url`, `add-node`, `add-picture`,
+`import-blend` and `delete`. A command that changes a set shows its plan first
+and changes nothing until you add `--confirm`.
+
+Name the set once with `--set <id|name>` (or `ACT3_SET_ID`) and leave `<setId>`
+out; every answer says which set ACT3 used and why.
 
 ## Learn a command
 
@@ -94,7 +112,8 @@ act3 <noun> <verb> --help   # every flag, every value, and an example
 
 `--json` prints exactly what ACT3 sent, one line, for `jq`. Other global flags:
 `--project-id` (act on one project without moving your cursor), `--api-url`
-(point at a different ACT3), and `--verbose` (the detail behind an error).
+(point at a different ACT3), `--set` (the 4D set a call means when it names
+none), and `--verbose` (the detail behind an error).
 
 ## License
 
